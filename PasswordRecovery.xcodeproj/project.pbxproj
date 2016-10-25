@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		4E694A291DBEA3F300BB5867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E694A281DBEA3F300BB5867 /* AppDelegate.swift */; };
-		4E694A2B1DBEA3F300BB5867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E694A2A1DBEA3F300BB5867 /* ViewController.swift */; };
 		4E694A2E1DBEA3F300BB5867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E694A2C1DBEA3F300BB5867 /* Main.storyboard */; };
 		4E694A301DBEA3F300BB5867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E694A2F1DBEA3F300BB5867 /* Assets.xcassets */; };
 		4E694A331DBEA3F300BB5867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E694A311DBEA3F300BB5867 /* LaunchScreen.storyboard */; };
+		4E79A7001DBF0A79009A8223 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79A6FF1DBF0A79009A8223 /* LogInViewController.swift */; };
+		4E79A7021DBF0AC8009A8223 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79A7011DBF0AC8009A8223 /* SignUpViewController.swift */; };
+		4E79A7041DBF0B09009A8223 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79A7031DBF0B09009A8223 /* ResetPasswordViewController.swift */; };
+		4E79A7061DBF1C1D009A8223 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79A7051DBF1C1D009A8223 /* NetworkingService.swift */; };
+		4EFCBDBE1DBEEA3100F82055 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EFCBDBD1DBEEA3100F82055 /* GoogleService-Info.plist */; };
+		E610837480FF0EBBC5C5A13D /* Pods_PasswordRecovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AEAABFA75432645C9108A5 /* Pods_PasswordRecovery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		143D67DECB2BEA6FFDC8CD1C /* Pods-PasswordRecovery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordRecovery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordRecovery/Pods-PasswordRecovery.debug.xcconfig"; sourceTree = "<group>"; };
 		4E694A251DBEA3F300BB5867 /* PasswordRecovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordRecovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E694A281DBEA3F300BB5867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E694A2A1DBEA3F300BB5867 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E694A2D1DBEA3F300BB5867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E694A2F1DBEA3F300BB5867 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E694A321DBEA3F300BB5867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E694A341DBEA3F300BB5867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E79A6FF1DBF0A79009A8223 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogInViewController.swift; path = ../LogInViewController.swift; sourceTree = "<group>"; };
+		4E79A7011DBF0AC8009A8223 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
+		4E79A7031DBF0B09009A8223 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		4E79A7051DBF1C1D009A8223 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		4EFCBDBD1DBEEA3100F82055 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		72AEAABFA75432645C9108A5 /* Pods_PasswordRecovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasswordRecovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9744D606D322F24C560656CC /* Pods-PasswordRecovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordRecovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordRecovery/Pods-PasswordRecovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E610837480FF0EBBC5C5A13D /* Pods_PasswordRecovery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +53,8 @@
 			children = (
 				4E694A271DBEA3F300BB5867 /* PasswordRecovery */,
 				4E694A261DBEA3F300BB5867 /* Products */,
+				7C456B9B0BC2766B31899C03 /* Pods */,
+				AAE3694C3CA41408F7BF8FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +69,35 @@
 		4E694A271DBEA3F300BB5867 /* PasswordRecovery */ = {
 			isa = PBXGroup;
 			children = (
+				4E79A7031DBF0B09009A8223 /* ResetPasswordViewController.swift */,
+				4E79A7011DBF0AC8009A8223 /* SignUpViewController.swift */,
+				4E79A6FF1DBF0A79009A8223 /* LogInViewController.swift */,
 				4E694A281DBEA3F300BB5867 /* AppDelegate.swift */,
-				4E694A2A1DBEA3F300BB5867 /* ViewController.swift */,
 				4E694A2C1DBEA3F300BB5867 /* Main.storyboard */,
+				4E79A7051DBF1C1D009A8223 /* NetworkingService.swift */,
 				4E694A2F1DBEA3F300BB5867 /* Assets.xcassets */,
 				4E694A311DBEA3F300BB5867 /* LaunchScreen.storyboard */,
 				4E694A341DBEA3F300BB5867 /* Info.plist */,
+				4EFCBDBD1DBEEA3100F82055 /* GoogleService-Info.plist */,
 			);
 			path = PasswordRecovery;
+			sourceTree = "<group>";
+		};
+		7C456B9B0BC2766B31899C03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				143D67DECB2BEA6FFDC8CD1C /* Pods-PasswordRecovery.debug.xcconfig */,
+				9744D606D322F24C560656CC /* Pods-PasswordRecovery.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AAE3694C3CA41408F7BF8FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72AEAABFA75432645C9108A5 /* Pods_PasswordRecovery.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E694A371DBEA3F300BB5867 /* Build configuration list for PBXNativeTarget "PasswordRecovery" */;
 			buildPhases = (
+				3CA00D95B85A1ADBC0CACC28 /* [CP] Check Pods Manifest.lock */,
 				4E694A211DBEA3F200BB5867 /* Sources */,
 				4E694A221DBEA3F200BB5867 /* Frameworks */,
 				4E694A231DBEA3F200BB5867 /* Resources */,
+				25291D7EB3A7B08EA632CE68 /* [CP] Embed Pods Frameworks */,
+				00124DF87160867632CE2263 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +135,7 @@
 				TargetAttributes = {
 					4E694A241DBEA3F200BB5867 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TLRQEGA7H3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E694A331DBEA3F300BB5867 /* LaunchScreen.storyboard in Resources */,
+				4EFCBDBE1DBEEA3100F82055 /* GoogleService-Info.plist in Resources */,
 				4E694A301DBEA3F300BB5867 /* Assets.xcassets in Resources */,
 				4E694A2E1DBEA3F300BB5867 /* Main.storyboard in Resources */,
 			);
@@ -131,13 +172,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00124DF87160867632CE2263 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PasswordRecovery/Pods-PasswordRecovery-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25291D7EB3A7B08EA632CE68 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PasswordRecovery/Pods-PasswordRecovery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CA00D95B85A1ADBC0CACC28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E694A211DBEA3F200BB5867 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E694A2B1DBEA3F300BB5867 /* ViewController.swift in Sources */,
+				4E79A7061DBF1C1D009A8223 /* NetworkingService.swift in Sources */,
+				4E79A7021DBF0AC8009A8223 /* SignUpViewController.swift in Sources */,
+				4E79A7001DBF0A79009A8223 /* LogInViewController.swift in Sources */,
 				4E694A291DBEA3F300BB5867 /* AppDelegate.swift in Sources */,
+				4E79A7041DBF0B09009A8223 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,25 +350,33 @@
 		};
 		4E694A381DBEA3F300BB5867 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143D67DECB2BEA6FFDC8CD1C /* Pods-PasswordRecovery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TLRQEGA7H3;
 				INFOPLIST_FILE = PasswordRecovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrice.PasswordRecovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4E694A391DBEA3F300BB5867 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9744D606D322F24C560656CC /* Pods-PasswordRecovery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TLRQEGA7H3;
 				INFOPLIST_FILE = PasswordRecovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patrice.PasswordRecovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -299,6 +399,7 @@
 				4E694A391DBEA3F300BB5867 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
