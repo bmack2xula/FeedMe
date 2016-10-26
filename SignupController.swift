@@ -5,7 +5,7 @@ import Firebase
 class SignupController: UIViewController {
     
     
- 
+    
     //Outlets
     
     @IBOutlet weak var firstnameField: UITextField!
@@ -23,24 +23,30 @@ class SignupController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    ref = FIRDatabase.database().reference(withPath: "user")
-    
+        
+        ref = FIRDatabase.database().reference(withPath: "user")
+        
     }
     
     
     @IBAction func signup(_ sender: AnyObject) {
         
         let firstname = firstnameField.text
+        
         let lastname = lastnameField.text
         let dobString = dobField.text
         let email = emailField.text
         let password = passwordField.text
+        let authpassword = authpasswordField.text
         
         //let dob = dobFormat(dateofBirth: dobString!)
-
+        
+        let value = confirmPassword(password1: password!, password2: authpassword!)
+        
+        
         FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
-            if error != nil {
+            if error != nil || (value == false){
+                
                 
                 var errorMessage = "Sign Up failed :: Please try again"
                 
@@ -49,6 +55,7 @@ class SignupController: UIViewController {
                 if let parseError = error.userInfo["error"] as? String {
                     
                     errorMessage = parseError
+                    
                 }
                 
                 print(errorMessage)
@@ -58,14 +65,14 @@ class SignupController: UIViewController {
                     "firstname" : firstname!,
                     "lastname" : lastname!,
                     "dob" : dobString!
-                     ])
+                    ])
                 
-                   
+                
                 
                 print("Sign Up!")
             }
         }
-
+        
         
         
     }
@@ -79,6 +86,14 @@ class SignupController: UIViewController {
         
     }
     
+    
+    func confirmPassword(password1: String, password2: String) -> Bool {
+        if password1 != password2 {
+            return false
+        } else{
+            return true
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
