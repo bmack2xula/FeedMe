@@ -17,6 +17,8 @@ struct NetworkingService{
     let databaseRef = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
     
+    // Saves user in database
+    
     private func saveInfo(user: FIRUser!, username: String, password: String){
         
         // create user dictionary
@@ -34,6 +36,8 @@ struct NetworkingService{
         signIn(email: user.email!, password: password)
     }
     
+   // Signs in user
+    
     func signIn(email: String, password: String){
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil{
@@ -47,28 +51,34 @@ struct NetworkingService{
         })
         
     }
+ 
     
-    func setUserInfo(user: FIRUser!, username: String, password: String){
-        
-        let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = username
-        
-        self.saveInfo(user: user, username: username, password: password)
-        
-    }
+    //Creates the user
     
     func signUp(email: String, username: String, password: String){
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             
             if error == nil {
-                self.setUserInfo(user: user, username: username, password: password)
+               FIRAuth.auth()?.signIn(withEmail: email, password: password)
             }
             else{
                 print (error?.localizedDescription)
             }
         })
         
+    }
+    
+    //resets password
+    func resetPassword(email: String){
+        FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
+            if error == nil {
+                print("An email will be sent to rest password")
+            }
+            else{
+                print(error?.localizedDescription)
+            }
+        })
     }
     
 }

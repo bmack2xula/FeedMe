@@ -10,10 +10,16 @@ import UIKit
 
 class ResetPasswordViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    let networkingService = NetworkingService()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+
+    @IBAction func restPasswordButton(_ sender: AnyObject) {
+        networkingService.resetPassword(email: emailTextField.text!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +38,6 @@ class ResetPasswordViewController: UIViewController {
     }
     */
 
+    
+    
 }
