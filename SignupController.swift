@@ -15,6 +15,7 @@ class SignupController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var authpasswordField: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -32,14 +33,13 @@ class SignupController: UIViewController {
     @IBAction func signup(_ sender: AnyObject) {
         
         let firstname = firstnameField.text
-        
         let lastname = lastnameField.text
         let dobString = dobField.text
         let email = emailField.text
         let password = passwordField.text
         let authpassword = authpasswordField.text
         
-        //let dob = dobFormat(dateofBirth: dobString!)
+        
         
         let value = confirmPassword(password1: password!, password2: authpassword!)
         
@@ -47,18 +47,16 @@ class SignupController: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
             if error != nil || (value == false){
                 
-                
-                var errorMessage = "Sign Up failed :: Please try again"
+                var displayedErrorMessage = "Please try again later"
                 
                 let error = error as! NSError
                 
                 if let parseError = error.userInfo["error"] as? String {
                     
-                    errorMessage = parseError
-                    
+                    displayedErrorMessage = parseError
                 }
-                
-                print(errorMessage)
+                print(displayedErrorMessage)
+                self.displayAlert(title: "Sign Up Failed", message: displayedErrorMessage)
                 
             } else {
                 self.ref.child("UserProfile").child(user!.uid).setValue([
@@ -68,24 +66,35 @@ class SignupController: UIViewController {
                     ])
                 
                 
+                self.performSegue(withIdentifier: "showLoginViewController", sender: self)
                 
-                print("Sign Up!")
+                
+                
             }
         }
         
         
         
     }
-    
-    func dobFormat(dateofBirth: String) -> Date {
+    /*
+     func dobFormat(dateofBirth: String) -> Date {
+     
+     let formatter = DateFormatter()
+     formatter.dateFormat = "MM-dd-yyyy"
+     let date = formatter.date(from: dateofBirth)
+     return date!
+     
+     }
+     */
+    func displayAlert(title: String, message: String) {
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy"
-        let date = formatter.date(from: dateofBirth)
-        return date!
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertcontroller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alertcontroller, animated: true, completion: nil)
         
     }
-    
     
     func confirmPassword(password1: String, password2: String) -> Bool {
         if password1 != password2 {
