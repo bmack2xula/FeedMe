@@ -70,7 +70,8 @@ class SignupController: UIViewController {
                 
                 self.ref.child("User Profile Information").child(user!.uid).setValue([
                     "firstname" : firstname!,
-                    "lastname" : lastname!
+                    "lastname" : lastname!,
+                    "dob" : dob
                     ])
                 //self.ref.child("User Profile Information").child(user!.uid).setValue(["dob": dob])
                 
@@ -95,7 +96,7 @@ class SignupController: UIViewController {
             return ""
         } else{
             let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd-yyyy"
+            formatter.dateFormat = "MM-dd-yy"
             let date = formatter.date(from: dateofBirth)
             
             let dob = formatter.string(from: date!)
