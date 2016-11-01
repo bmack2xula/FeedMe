@@ -17,8 +17,6 @@ class SignupController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    @IBOutlet weak var signUpButton: UIButton!
-    
     
     var ref: FIRDatabaseReference!
     
@@ -30,24 +28,31 @@ class SignupController: UIViewController {
     }
     
     
-    @IBAction func signup(_ sender: AnyObject) {
+    
+    @IBAction func signupAction(_ sender: AnyObject) {
         
         let firstname = firstnameField.text
         let lastname = lastnameField.text
-        let dobString = dobField.text
+        let dob = dobFormat(dateofBirth: dobField.text!)
+        
         let email = emailField.text
         let password = passwordField.text
-        let authpassword = authpasswordField.text
+        let passwordcomf = authpasswordField.text
         
         
         
-        let value = confirmPassword(password1: password!, password2: authpassword!)
+        let passwordComfirmation = confirmPassword(password1: password!, password2: passwordcomf!)
         
         
         FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
-            if error != nil || (value == false){
+            
+            if (firstname?.isEmpty)! || (lastname?.isEmpty)! || (dob == "") || (email?.isEmpty)! || (password?.isEmpty)! || (passwordcomf?.isEmpty)! {
                 
-                var displayedErrorMessage = "Please try again later"
+                
+                self.displayAlert(title: "Sign Up Failed :: Please try again", message: "Please complete all sign up fields")
+            }else if error != nil || (passwordComfirmation == false){
+                
+                var displayedErrorMessage = "Please try again"
                 
                 let error = error as! NSError
                 
@@ -56,14 +61,21 @@ class SignupController: UIViewController {
                     displayedErrorMessage = parseError
                 }
                 print(displayedErrorMessage)
-                self.displayAlert(title: "Sign Up Failed", message: displayedErrorMessage)
+                self.displayAlert(title: "Sign Up Failed :: Please try again", message: displayedErrorMessage)
                 
-            } else {
-                self.ref.child("UserProfile").child(user!.uid).setValue([
+                self.errorLabel.text = displayedErrorMessage
+                
+                
+            } else{
+                
+                self.ref.child("User Profile Information").child(user!.uid).setValue([
                     "firstname" : firstname!,
-                    "lastname" : lastname!,
-                    "dob" : dobString!
+                    "lastname" : lastname!
                     ])
+                //self.ref.child("User Profile Information").child(user!.uid).setValue(["dob": dob])
+                
+                
+                
                 
                 
                 self.performSegue(withIdentifier: "showLoginViewController", sender: self)
@@ -76,21 +88,28 @@ class SignupController: UIViewController {
         
         
     }
-    /*
-     func dobFormat(dateofBirth: String) -> Date {
-     
-     let formatter = DateFormatter()
-     formatter.dateFormat = "MM-dd-yyyy"
-     let date = formatter.date(from: dateofBirth)
-     return date!
-     
-     }
-     */
+    
+    //Converts a string -> date -> string
+    func dobFormat(dateofBirth: String) -> String {
+        if dateofBirth.isEmpty {
+            return ""
+        } else{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM-dd-yyyy"
+            let date = formatter.date(from: dateofBirth)
+            
+            let dob = formatter.string(from: date!)
+            
+            return dob
+    }
+    }
+    
+    //Error alert message
     func displayAlert(title: String, message: String) {
         
         let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alertcontroller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertcontroller.addAction(UIAlertAction(title: "Error", style: .default, handler: nil))
         
         self.present(alertcontroller, animated: true, completion: nil)
         
@@ -103,6 +122,16 @@ class SignupController: UIViewController {
             return true
         }
     }
+    
+    //segue button
+    @IBAction func loginPage(_ sender: AnyObject) {
+        
+        self.performSegue(withIdentifier: "showLoginViewController", sender: self)
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
