@@ -15,8 +15,6 @@ class SignupController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var authpasswordField: UITextField!
     
-    @IBOutlet weak var errorLabel: UILabel!
-    
     
     var ref: FIRDatabaseReference!
     
@@ -50,20 +48,20 @@ class SignupController: UIViewController {
                 
                 
                 self.displayAlert(title: "Sign Up Failed :: Please try again", message: "Please complete all sign up fields")
+                
             }else if error != nil || (passwordComfirmation == false){
                 
-                var displayedErrorMessage = "Please try again"
-                
+                var errorMessage = "Sign Up Failed :: Please try again"
+
                 let error = error as! NSError
                 
                 if let parseError = error.userInfo["error"] as? String {
                     
-                    displayedErrorMessage = parseError
+                    errorMessage = parseError
                 }
-                print(displayedErrorMessage)
-                self.displayAlert(title: "Sign Up Failed :: Please try again", message: displayedErrorMessage)
+                print(errorMessage)
                 
-                self.errorLabel.text = displayedErrorMessage
+                self.displayAlert(title: "Sign Up Failed", message: "Passwords do not match please try again")
                 
                 
             } else{
@@ -110,7 +108,7 @@ class SignupController: UIViewController {
         
         let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alertcontroller.addAction(UIAlertAction(title: "Error", style: .default, handler: nil))
+        alertcontroller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(alertcontroller, animated: true, completion: nil)
         
