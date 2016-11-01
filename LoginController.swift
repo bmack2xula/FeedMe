@@ -14,7 +14,6 @@ class LoginController: UIViewController {
  
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
     
     
     var ref: FIRDatabaseReference!
@@ -25,7 +24,7 @@ class LoginController: UIViewController {
         
         FIRAuth.auth()?.signIn(withEmail: email!, password: password!, completion: { (user, error) in
             if error != nil{
-                var errorMessage = "Login failed :: Please try again"
+                var errorMessage = "Login Failed :: Please try again"
                 
                 let error = error as! NSError
                 
@@ -35,16 +34,27 @@ class LoginController: UIViewController {
                     
                 }
                 print(errorMessage)
+                 self.displayAlert(title: "Login Failed", message: "Please try again")
                 
             }else {
                 
                 print("Logged in!")
                 
-                //self.performSegue(withIdentifier: "UserPageViewController", sender: self)
+                self.performSegue(withIdentifier: "UserPageViewController", sender: self)
                 
                 
             }
         })
+    }
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertcontroller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alertcontroller, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
@@ -54,6 +64,10 @@ class LoginController: UIViewController {
         
     }
     
+    @IBAction func signupPage(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "SignUpViewController", sender: self)
+    }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
