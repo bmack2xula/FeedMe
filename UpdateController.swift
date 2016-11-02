@@ -12,47 +12,38 @@ import Firebase
 class UpdateController: UIViewController {
     
     var ref: FIRDatabaseReference!
-    
-    
-    @IBOutlet weak var firstnameField: UITextField!
-    
-    @IBOutlet weak var lastnameField: UITextField!
-    
-    @IBOutlet weak var dobField: UITextField!
-    
-    @IBOutlet weak var deleteButton: UIButton!
 
-    /*
-    @IBAction func updateUserInfo(_ sender: AnyObject) {
-        
-        
-        updateField(textField: firstnameField, fieldName: "firstname")
-        updateField(textField: lastnameField, fieldName: "lastname")
-        updateField(textField: dobField, fieldName: "dob")
-    
-        
-        
-    }
-    */
-    
-    
-    
-    //updates profile
-    func updateField(textField: UITextField, fieldName: String) {
-      
-    
-    }
-    
     
     //deletes profile and segues back to the Sign Up screen
     @IBAction func deleteProfile(_ sender: Any) {
         let user = FIRAuth.auth()?.currentUser
-
+        
         user?.delete()
         
-        self.performSegue(withIdentifier: "showSignupViewController", sender: self)
-    
+        self.performSegue(withIdentifier: "SignupViewController", sender: self)
     }
+  
+    
+    //brings you back to the user profile
+    @IBAction func cancelAction(_ sender: Any) {
+    
+        self.performSegue(withIdentifier: "UserPageViewController", sender: self)
+    }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
