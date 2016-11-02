@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 class LoginController: UIViewController {
- 
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
@@ -19,33 +19,50 @@ class LoginController: UIViewController {
     var ref: FIRDatabaseReference!
     
     @IBAction func login(_ sender: AnyObject) {
+        
         let email = emailField.text
+        
         let password = passwordField.text
         
-        FIRAuth.auth()?.signIn(withEmail: email!, password: password!, completion: { (user, error) in
-            if error != nil{
-                var errorMessage = "Login Failed :: Please try again"
-                
-                let error = error as! NSError
-                
-                if let parseError = error.userInfo["error"] as? String {
+        if email != "" || password != "" {
+            FIRAuth.auth()?.signIn(withEmail: email!, password: password!, completion: { (user, error) in
+                if error != nil{
+                    var errorMessage = "Login failed :: Please try again"
                     
-                    errorMessage = parseError
+                    let error = error as! NSError
                     
+                    if let parseError = error.userInfo["error"] as? String {
+                        
+                        errorMessage = parseError
+                        
+                    }
+                    print(errorMessage)
+                    self.displayAlert(title: "Login Failed", message: "Please try again")
+                    
+                    
+                    
+                    
+                }else {
+                    
+                    
+                    print("Logged in!")
+                    
+                    self.performSegue(withIdentifier: "UserViewController", sender: self)
                 }
-                print(errorMessage)
-                 self.displayAlert(title: "Login Failed", message: "Please try again")
-                
-            }else {
-                
-                print("Logged in!")
-                
-                self.performSegue(withIdentifier: "UserPageViewController", sender: self)
-                
-                
-            }
-        })
+            })
+        }else {
+            self.displayAlert(title: "Nothing entered", message: "Please try again")
+        }
     }
+    
+    
+    
+    //Return to the sign up page
+    @IBAction func signUpSegue(_ sender: Any) {
+        self.performSegue(withIdentifier: "SignUpViewController", sender: self)
+        
+    }
+    
     
     func displayAlert(title: String, message: String) {
         
@@ -57,6 +74,7 @@ class LoginController: UIViewController {
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,14 +82,10 @@ class LoginController: UIViewController {
         
     }
     
-    @IBAction func signupPage(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "SignUpViewController", sender: self)
-    }
- 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
- 
+
