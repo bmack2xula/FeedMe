@@ -13,6 +13,9 @@ class UpdateController: UIViewController {
     
     var ref: FIRDatabaseReference!
 
+    @IBOutlet weak var firstnameField: UITextField!
+    @IBOutlet weak var lastnameField: UITextField!
+    @IBOutlet weak var dobField: UITextField!
     
     //deletes profile and segues back to the Sign Up screen
     @IBAction func deleteProfile(_ sender: Any) {
@@ -32,6 +35,29 @@ class UpdateController: UIViewController {
    
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+  
+    }
+    
+    
+    
+    func updateInformation() {
+        let key = FIRDatabase.database().reference().child("user")
+        
+        key.updateChildValues([
+            "firstname": firstnameField.text!,
+            "lastname": lastnameField.text!,
+            "dob": dobField.text! ])
+        
+       //let childUpdates = ["/information/\(key)": information, "/user-information/\(firstnameField.text)/\(key)/": information]
+    }
+    
+
+    @IBAction func updateButton(_ sender: Any) {
+        updateInformation()
+    }
+
     
     
     
@@ -46,8 +72,7 @@ class UpdateController: UIViewController {
     
     
     
-    
-    
+
     
     
     func displayAlert(title: String, message: String) {
@@ -59,14 +84,7 @@ class UpdateController: UIViewController {
         self.present(alertcontroller, animated: true, completion: nil)
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        ref = FIRDatabase.database().reference()
-        
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
