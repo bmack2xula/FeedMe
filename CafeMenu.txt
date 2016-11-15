@@ -1,0 +1,74 @@
+LUNCH
+
+ Bread	
+ Buttermilk Cornbread Vegetarian
+ Dinner Rolls
+ Wheat Dinner Roll Vegetarian
+ 
+ Casserette	
+ Trainwreck Pasta Casserette
+ 
+ Chefs Choice	
+ Low Sodium Wild Rice Pilaf Vegan Mindful Item
+ Mashed Yukon Gold Potatoes
+ Fresh French Green Beans Vegan Mindful Item
+ Zucchini & Yellow Squash Vegan
+ Braised KaleVeganMindful Item
+ Braised Red Cabbage Vegetarian Mindful Item
+ 
+ Deli	
+ Thai Chicken Biggie Sandwich Mindful Item
+ 
+ Dessert	
+ Homestyle Sour Cream Pound Cake Vegetarian
+ Angel Hair Noodle Cake Vegan
+ Sugar Cookies
+ Mississippi Mud Cake
+ Lemon Jell-O Parfait Mindful Item
+ 
+ Entrée	
+ Bayou Red Beans	
+ Brown Rice Vegan Mindful Item
+ White Rice Vegetarian
+ Mustard Greens and Garlic Vegetarian
+ 
+ Exhibition	
+ Shell Pasta Vegan	
+ Spaghetti Sauce with Tomato Bits Vegetarian
+ New Cheese Sauce Vegetarian
+ Whole Wheat Rotini Vegan
+ 
+ Grill	
+ Chicken SandwichMindful Item	
+ Classic Cheeseburger on a Toasted Bun
+ Cheese Quesadilla Vegetarian
+ French Fries Vegetarian
+ 
+ International	
+ Fettuccine Alfredo with Chicken
+ 
+ Meat	
+ Classic Roasted Turkey Breast Mindful Item	
+ Turkey Gravy
+ Cranberry Relish Vegan
+ 
+ Pizza	
+ Snowshoe Cheese Pizza Vegetarian	
+ Pepperoni Snowshoe Pizza
+ Bruschetta Snowshoe Pizza Vegetarian
+ Herb Seasoned Breadsticks Vegetarian
+ 
+ Potato	
+ Baked Potato Vegan	
+ Baked Sweet Potato VeganMindful Item
+ 
+ Salad	
+ Autumn Salad Vegetarian Mindful Item
+ 
+ Soup	
+ Old-Fashioned Chicken Noodle Soup Mindful Item	
+ Minestrone Soups Mindful Item
+ Herb Seasoned Breadsticks Vegetarian
+ 
+ Vegetarian/Vegan	
+ Braised Vegetables & Quinoa Vegetarian Mindful Item
